@@ -1,0 +1,15 @@
+title: Suspicious handle opened to LSASS
+id: ck-win-006
+status: stable
+description: A non-system process opened LSASS with memory-read access rights (Sysmon EID 10), the precondition for credential dumping.
+author: DFIR CaseKit
+level: high
+tags: [attack.credential_access, attack.t1003.001]
+logsource: {product: windows, category: process_access}
+detection:
+  selection:
+    TargetImage|endswith: '\lsass.exe'
+    GrantedAccess: ['0x1fffff', '0x1010', '0x1410', '0x1438', '0x143a', '0x1f3fff']
+  filter_system:
+    SourceImage|endswith: ['\wininit.exe', '\csrss.exe', '\MsMpEng.exe', '\services.exe', '\lsm.exe', '\svchost.exe']
+  condition: selection and not filter_system

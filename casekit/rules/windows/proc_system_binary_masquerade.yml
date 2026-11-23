@@ -1,0 +1,17 @@
+title: System process name running from a non-system path
+id: ck-win-004
+status: stable
+description: |
+  A process named like a core Windows binary (svchost.exe, lsass.exe ...) ran from outside
+  System32/SysWOW64. Malware borrows these names to blend into process listings.
+author: DFIR CaseKit
+level: high
+tags: [attack.defense_evasion, attack.t1036.005]
+logsource: {product: windows, category: process_creation}
+detection:
+  selection:
+    Image|endswith: ['\svchost.exe', '\lsass.exe', '\csrss.exe', '\services.exe', '\smss.exe',
+                     '\winlogon.exe', '\wininit.exe', '\taskhostw.exe', '\spoolsv.exe', '\dllhost.exe']
+  filter_legit:
+    Image|startswith: ['C:\Windows\System32\', 'C:\Windows\SysWOW64\', 'C:\Windows\WinSxS\']
+  condition: selection and not filter_legit

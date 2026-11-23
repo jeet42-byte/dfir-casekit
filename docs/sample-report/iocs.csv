@@ -1,0 +1,17 @@
+type,value,defanged,first_seen_utc,context
+ipv4,198.51.100.23,198[.]51[.]100[.]23,2026-11-18T07:40:04+00:00,SSH brute force (no success observed)
+ipv4,203.0.113.45,203[.]0[.]113[.]45,2026-11-18T08:41:51+00:00,Script or executable fetched over plain HTTP
+ipv4,203.0.113.50,203[.]0[.]113[.]50,2026-11-18T09:52:30+00:00,Large outbound transfer to 203.0.113.50:443
+domain,update.cdn-sync.example,update[.]cdn-sync[.]example,2026-11-18T08:41:49+00:00,Office application spawned a shell or script host
+domain,api.cdn-sync.example,api[.]cdn-sync[.]example,2026-11-18T08:42:20+00:00,Periodic DNS beaconing to api.cdn-sync.example
+domain,tlmcache.example,tlmcache[.]example,2026-11-18T10:05:00+00:00,DNS tunnelling / exfiltration via tlmcache.example
+url,http://update.cdn-sync.example/assets/stage2.ps1,hxxp://update[.]cdn-sync[.]example/assets/stage2.ps1,2026-11-18T08:41:49+00:00,Office application spawned a shell or script host
+sha256,008e55c1f6b72b90c9fd89f9f47407c74e66b5d40bda50136b5960e085d054b1,008e55c1f6b72b90c9fd89f9f47407c74e66b5d40bda50136b5960e085d054b1,2026-11-18T08:42:12+00:00,C:\Users\Public\Libraries\svchost.exe (System process name running from a non-system path)
+sha256,b9a54fe4d69a55a4c9fbea937a5a8bffcd4ea0913207d45b8ed975ab15cf9e89,b9a54fe4d69a55a4c9fbea937a5a8bffcd4ea0913207d45b8ed975ab15cf9e89,2026-11-18T09:48:01+00:00,C:\Users\Public\Libraries\7za.exe (Data staged into an archive with a command-line archiver)
+md5,c01f2986db515dc435dd8618b10ec11d,c01f2986db515dc435dd8618b10ec11d,2026-11-18T08:42:12+00:00,C:\Users\Public\Libraries\svchost.exe (System process name running from a non-system path)
+md5,4a8d5b87240ec5c0a1ad20f1525071b0,4a8d5b87240ec5c0a1ad20f1525071b0,2026-11-18T09:48:01+00:00,C:\Users\Public\Libraries\7za.exe (Data staged into an archive with a command-line archiver)
+file,C:\Users\farhana.k\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\Q7Z1KD3M\Invoice_Nov2026.docm,C:\Users\farhana.k\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\Q7Z1KD3M\Invoice_Nov2026.docm,2026-11-18T08:41:05+00:00,Macro-enabled Office document saved from an email attachment
+file,C:\Users\Public\Libraries\svchost.exe,C:\Users\Public\Libraries\svchost.exe,2026-11-18T08:42:12+00:00,System process name running from a non-system path
+file,C:\Users\Public\Libraries\wct4E1.tmp,C:\Users\Public\Libraries\wct4E1.tmp,2026-11-18T09:07:33+00:00,Executable or dump written to a world-writable directory
+file,C:\Users\Public\Libraries\7za.exe,C:\Users\Public\Libraries\7za.exe,2026-11-18T09:47:50+00:00,Executable or dump written to a world-writable directory
+account,svc_backup,svc_backup,2026-11-18T09:32:05+00:00,User account created (EID 4720)

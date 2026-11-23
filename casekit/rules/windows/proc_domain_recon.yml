@@ -1,0 +1,19 @@
+title: Domain and account discovery commands
+id: ck-win-007
+status: stable
+description: Built-in tools used to enumerate the current user, privileged domain groups or domain trusts - typical hands-on-keyboard reconnaissance after initial access.
+author: DFIR CaseKit
+level: medium
+tags: [attack.discovery, attack.t1033, attack.t1087.002, attack.t1482]
+logsource: {product: windows, category: process_creation}
+detection:
+  sel_whoami:
+    CommandLine|contains: ['whoami /all', 'whoami /priv', 'whoami /groups']
+  sel_net:
+    CommandLine|contains: ['net group "domain admins"', 'net group "enterprise admins"', 'net user /domain', 'net group /domain']
+  sel_nltest:
+    CommandLine|contains: ['nltest /domain_trusts', 'nltest /dclist', 'nltest /trusted_domains']
+  filter_add:
+    CommandLine|contains: ' /add'
+  condition: 1 of sel_* and not filter_add
+falsepositives: [Administrators troubleshooting]

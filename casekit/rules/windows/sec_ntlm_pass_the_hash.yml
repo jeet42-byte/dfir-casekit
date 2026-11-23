@@ -1,0 +1,22 @@
+title: NTLM network logon with null session key (possible pass-the-hash)
+id: ck-win-013
+status: experimental
+description: |
+  Successful type 3 logon authenticated with NTLM through NtLmSsp and a zero-length session key.
+  In a Kerberos-first domain, a privileged account authenticating this way from a workstation is
+  a strong pass-the-hash indicator. Baseline legitimate NTLM first.
+author: DFIR CaseKit
+level: high
+tags: [attack.lateral_movement, attack.t1550.002]
+logsource: {product: windows, service: security}
+detection:
+  selection:
+    EventID: 4624
+    LogonType: 3
+    LogonProcessName|startswith: 'NtLmSsp'
+    AuthenticationPackageName: 'NTLM'
+    KeyLength: 0
+  filter_anonymous:
+    TargetUserName: 'ANONYMOUS LOGON'
+  condition: selection and not filter_anonymous
+falsepositives: [Legacy applications that only speak NTLM]

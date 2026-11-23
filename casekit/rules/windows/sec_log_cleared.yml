@@ -1,0 +1,12 @@
+title: Security audit log was cleared (EID 1102)
+id: ck-win-011
+status: stable
+description: The Security log recorded its own clearing. Whatever happened before this point on this host may no longer be in the local log - check the SIEM or other hosts.
+author: DFIR CaseKit
+level: high
+tags: [attack.defense_evasion, attack.t1070.001]
+logsource: {product: windows, service: security}
+detection:
+  selection:
+    EventID: 1102
+  condition: selection

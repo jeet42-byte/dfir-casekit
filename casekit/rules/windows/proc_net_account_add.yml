@@ -1,0 +1,16 @@
+title: Account created or added to a group with net.exe
+id: ck-win-019
+status: stable
+description: net user /add or net group|localgroup ... /add from the command line - the hands-on-keyboard way to create a backdoor account or grant it privileges.
+author: DFIR CaseKit
+level: high
+tags: [attack.persistence, attack.t1136.002, attack.t1098]
+logsource: {product: windows, category: process_creation}
+detection:
+  selection_img:
+    Image|endswith: ['\net.exe', '\net1.exe']
+  selection_cmd:
+    CommandLine|contains: [' user ', ' group ', ' localgroup ']
+  selection_add:
+    CommandLine|contains: ' /add'
+  condition: selection_img and selection_cmd and selection_add

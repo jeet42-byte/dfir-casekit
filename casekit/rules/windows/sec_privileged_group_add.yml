@@ -1,0 +1,13 @@
+title: Member added to a privileged group
+id: ck-win-015
+status: stable
+description: An account was added to Administrators / Domain Admins / Enterprise Admins (EID 4728, 4732, 4756).
+author: DFIR CaseKit
+level: high
+tags: [attack.persistence, attack.t1098]
+logsource: {product: windows, service: security}
+detection:
+  selection:
+    EventID: [4728, 4732, 4756]
+    TargetUserName: ['Administrators', 'Domain Admins', 'Enterprise Admins', 'Schema Admins', 'Backup Operators']
+  condition: selection

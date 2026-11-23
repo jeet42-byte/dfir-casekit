@@ -1,0 +1,18 @@
+title: PowerShell launched with an encoded command
+id: ck-win-002
+status: stable
+description: |
+  PowerShell was started with -EncodedCommand (or an abbreviation). Base64-encoding a command hides
+  it from casual log review and from naive keyword alerts. CaseKit decodes the payload into the
+  DecodedCommand field - read it.
+author: DFIR CaseKit
+level: high
+tags: [attack.execution, attack.t1059.001, attack.defense_evasion, attack.t1027]
+logsource: {product: windows, category: process_creation}
+detection:
+  selection_img:
+    Image|endswith: ['\powershell.exe', '\pwsh.exe']
+  selection_flag:
+    CommandLine|re: '\s-(e|en|enc|enco|encodedcommand|ec)\s+[A-Za-z0-9+/=]{16,}'
+  condition: selection_img and selection_flag
+falsepositives: [Some management agents (SCCM, Intune) - baseline them]

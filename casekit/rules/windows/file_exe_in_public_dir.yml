@@ -1,0 +1,14 @@
+title: Executable or dump written to a world-writable directory
+id: ck-win-020
+status: stable
+description: A binary, script or memory-dump-sized temp file was created under C:\Users\Public, C:\ProgramData or C:\PerfLogs - directories any user can write to and malware favours for staging.
+author: DFIR CaseKit
+level: medium
+tags: [attack.command_and_control, attack.t1105]
+logsource: {product: windows, category: file_event}
+detection:
+  selection_dir:
+    TargetFilename|startswith: ['C:\Users\Public\', 'C:\ProgramData\', 'C:\PerfLogs\']
+  selection_ext:
+    TargetFilename|endswith: ['.exe', '.dll', '.ps1', '.bat', '.vbs', '.hta', '.tmp', '.dmp', '.7z']
+  condition: selection_dir and selection_ext

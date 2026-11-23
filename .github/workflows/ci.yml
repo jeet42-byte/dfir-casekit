@@ -1,0 +1,24 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e ".[dev]"
+      - run: pytest -q
+      - name: Sample case is reproducible
+        run: |
+          python scripts/make_case.py /tmp/regen
+          diff -r /tmp/regen/evidence cases/CASE-2026-011/evidence
+      - name: Triage the sample case
+        run: |
+          cp -r cases/CASE-2026-011 /tmp/case
+          casekit triage /tmp/case --examiner ci
+          casekit verify /tmp/case

@@ -1,0 +1,13 @@
+title: Certutil used to download a file
+id: ck-win-018
+status: stable
+description: certutil.exe with -urlcache or -split -f fetching a URL - a living-off-the-land download.
+author: DFIR CaseKit
+level: high
+tags: [attack.command_and_control, attack.t1105]
+logsource: {product: windows, category: process_creation}
+detection:
+  selection:
+    Image|endswith: '\certutil.exe'
+    CommandLine|contains: ['-urlcache', '/urlcache', '-verifyctl']
+  condition: selection

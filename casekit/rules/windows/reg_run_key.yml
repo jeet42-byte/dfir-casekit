@@ -1,0 +1,14 @@
+title: Registry Run key persistence pointing at a user-writable path
+id: ck-win-016
+status: stable
+description: A Run/RunOnce value was set to launch a program from a user-writable directory at every logon.
+author: DFIR CaseKit
+level: high
+tags: [attack.persistence, attack.t1547.001]
+logsource: {product: windows, category: registry_set}
+detection:
+  selection_key:
+    TargetObject|contains: ['\Software\Microsoft\Windows\CurrentVersion\Run', '\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run']
+  selection_path:
+    Details|contains: ['\Users\Public\', '\AppData\', '\Temp\', '\ProgramData\', '\Perflogs\']
+  condition: selection_key and selection_path

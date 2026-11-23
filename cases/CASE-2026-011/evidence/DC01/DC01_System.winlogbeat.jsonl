@@ -1,0 +1,1 @@
+{"@timestamp": "2026-11-18T09:31:11.000Z", "winlog": {"channel": "System", "computer_name": "DC01.meghna.local", "event_id": 7045, "record_id": 50001, "event_data": {"ServiceName": "PSEXESVC", "ImagePath": "%SystemRoot%\\PSEXESVC.exe", "ServiceType": "user mode service", "StartType": "demand start", "AccountName": "LocalSystem"}}}

@@ -1,0 +1,595 @@
+[
+  {
+    "title": "LSASS memory dump via comsvcs.dll MiniDump or procdump",
+    "severity": "critical",
+    "techniques": [
+      "T1003.001",
+      "T1218.011"
+    ],
+    "rule_id": "ck-win-005",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T09:07:28+00:00",
+    "event_refs": [
+      "WS-FIN-07_Sysmon.jsonl#10024",
+      "WS-FIN-07_Sysmon.jsonl#10025"
+    ]
+  },
+  {
+    "title": "Office application spawned a shell or script host",
+    "severity": "high",
+    "techniques": [
+      "T1566.001",
+      "T1204.002"
+    ],
+    "rule_id": "ck-win-001",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T08:41:49+00:00",
+    "event_refs": [
+      "WS-FIN-07_Sysmon.jsonl#10009"
+    ]
+  },
+  {
+    "title": "PowerShell download cradle",
+    "severity": "high",
+    "techniques": [
+      "T1105",
+      "T1059.001"
+    ],
+    "rule_id": "ck-win-003",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T08:41:49+00:00",
+    "event_refs": [
+      "WS-FIN-07_Sysmon.jsonl#10009"
+    ]
+  },
+  {
+    "title": "PowerShell launched with an encoded command",
+    "severity": "high",
+    "techniques": [
+      "T1059.001",
+      "T1027"
+    ],
+    "rule_id": "ck-win-002",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T08:41:49+00:00",
+    "event_refs": [
+      "WS-FIN-07_Sysmon.jsonl#10009"
+    ]
+  },
+  {
+    "title": "Script or executable fetched over plain HTTP",
+    "severity": "high",
+    "techniques": [
+      "T1105",
+      "T1071.001"
+    ],
+    "rule_id": "ck-net-001",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T08:41:51.045000+00:00",
+    "event_refs": [
+      "core-span_2026-11-18.pcap#91"
+    ]
+  },
+  {
+    "title": "System process name running from a non-system path",
+    "severity": "high",
+    "techniques": [
+      "T1036.005"
+    ],
+    "rule_id": "ck-win-004",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T08:42:12+00:00",
+    "event_refs": [
+      "WS-FIN-07_Sysmon.jsonl#10012"
+    ]
+  },
+  {
+    "title": "Registry Run key persistence pointing at a user-writable path",
+    "severity": "high",
+    "techniques": [
+      "T1547.001"
+    ],
+    "rule_id": "ck-win-016",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T08:42:13+00:00",
+    "event_refs": [
+      "WS-FIN-07_Sysmon.jsonl#10013"
+    ]
+  },
+  {
+    "title": "Periodic DNS beaconing to api.cdn-sync.example",
+    "severity": "high",
+    "techniques": [
+      "T1071.004"
+    ],
+    "rule_id": "analytic.dns_beacon",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T08:42:20+00:00",
+    "event_refs": [
+      "core-span_2026-11-18.pcap#97",
+      "core-span_2026-11-18.pcap#115",
+      "core-span_2026-11-18.pcap#128",
+      "core-span_2026-11-18.pcap#139",
+      "core-span_2026-11-18.pcap#148",
+      "core-span_2026-11-18.pcap#157",
+      "core-span_2026-11-18.pcap#172",
+      "core-span_2026-11-18.pcap#188",
+      "core-span_2026-11-18.pcap#197",
+      "core-span_2026-11-18.pcap#206",
+      "core-span_2026-11-18.pcap#226",
+      "core-span_2026-11-18.pcap#237",
+      "core-span_2026-11-18.pcap#260",
+      "core-span_2026-11-18.pcap#276",
+      "core-span_2026-11-18.pcap#285",
+      "core-span_2026-11-18.pcap#294",
+      "core-span_2026-11-18.pcap#303",
+      "core-span_2026-11-18.pcap#316",
+      "core-span_2026-11-18.pcap#325",
+      "core-span_2026-11-18.pcap#341",
+      "core-span_2026-11-18.pcap#352",
+      "core-span_2026-11-18.pcap#361",
+      "core-span_2026-11-18.pcap#377",
+      "core-span_2026-11-18.pcap#395",
+      "core-span_2026-11-18.pcap#411",
+      "core-span_2026-11-18.pcap#424",
+      "core-span_2026-11-18.pcap#433",
+      "core-span_2026-11-18.pcap#444",
+      "core-span_2026-11-18.pcap#457",
+      "core-span_2026-11-18.pcap#466",
+      "core-span_2026-11-18.pcap#484",
+      "core-span_2026-11-18.pcap#502",
+      "core-span_2026-11-18.pcap#511",
+      "core-span_2026-11-18.pcap#520",
+      "core-span_2026-11-18.pcap#531",
+      "core-span_2026-11-18.pcap#544",
+      "core-span_2026-11-18.pcap#564",
+      "core-span_2026-11-18.pcap#582",
+      "core-span_2026-11-18.pcap#598",
+      "core-span_2026-11-18.pcap#609",
+      "core-span_2026-11-18.pcap#620",
+      "core-span_2026-11-18.pcap#638",
+      "core-span_2026-11-18.pcap#654",
+      "core-span_2026-11-18.pcap#663",
+      "core-span_2026-11-18.pcap#674",
+      "core-span_2026-11-18.pcap#690",
+      "core-span_2026-11-18.pcap#699",
+      "core-span_2026-11-18.pcap#708",
+      "core-span_2026-11-18.pcap#733",
+      "core-span_2026-11-18.pcap#749",
+      "core-span_2026-11-18.pcap#772",
+      "core-span_2026-11-18.pcap#790",
+      "core-span_2026-11-18.pcap#808",
+      "core-span_2026-11-18.pcap#824",
+      "core-span_2026-11-18.pcap#840",
+      "core-span_2026-11-18.pcap#863",
+      "core-span_2026-11-18.pcap#874",
+      "core-span_2026-11-18.pcap#883",
+      "core-span_2026-11-18.pcap#894",
+      "core-span_2026-11-18.pcap#901",
+      "core-span_2026-11-18.pcap#921",
+      "core-span_2026-11-18.pcap#930",
+      "core-span_2026-11-18.pcap#939",
+      "core-span_2026-11-18.pcap#948",
+      "core-span_2026-11-18.pcap#957",
+      "core-span_2026-11-18.pcap#966",
+      "core-span_2026-11-18.pcap#977",
+      "core-span_2026-11-18.pcap#986",
+      "core-span_2026-11-18.pcap#995",
+      "core-span_2026-11-18.pcap#1004",
+      "core-span_2026-11-18.pcap#1013",
+      "core-span_2026-11-18.pcap#1325",
+      "core-span_2026-11-18.pcap#2247",
+      "core-span_2026-11-18.pcap#2256",
+      "core-span_2026-11-18.pcap#2267",
+      "core-span_2026-11-18.pcap#2292",
+      "core-span_2026-11-18.pcap#2305",
+      "core-span_2026-11-18.pcap#2337",
+      "core-span_2026-11-18.pcap#2348",
+      "core-span_2026-11-18.pcap#2359",
+      "core-span_2026-11-18.pcap#2368",
+      "core-span_2026-11-18.pcap#2377",
+      "core-span_2026-11-18.pcap#2395",
+      "core-span_2026-11-18.pcap#2411",
+      "core-span_2026-11-18.pcap#2446",
+      "core-span_2026-11-18.pcap#2484",
+      "core-span_2026-11-18.pcap#2495",
+      "core-span_2026-11-18.pcap#2504",
+      "core-span_2026-11-18.pcap#2513",
+      "core-span_2026-11-18.pcap#2522",
+      "core-span_2026-11-18.pcap#2531",
+      "core-span_2026-11-18.pcap#2540",
+      "core-span_2026-11-18.pcap#2558",
+      "core-span_2026-11-18.pcap#2567",
+      "core-span_2026-11-18.pcap#2576",
+      "core-span_2026-11-18.pcap#2585",
+      "core-span_2026-11-18.pcap#2601",
+      "core-span_2026-11-18.pcap#2610",
+      "core-span_2026-11-18.pcap#2621",
+      "core-span_2026-11-18.pcap#2637",
+      "core-span_2026-11-18.pcap#2653",
+      "core-span_2026-11-18.pcap#2664",
+      "core-span_2026-11-18.pcap#2677",
+      "core-span_2026-11-18.pcap#2707",
+      "core-span_2026-11-18.pcap#2716",
+      "core-span_2026-11-18.pcap#2725",
+      "core-span_2026-11-18.pcap#2741",
+      "core-span_2026-11-18.pcap#2754",
+      "core-span_2026-11-18.pcap#2763"
+    ]
+  },
+  {
+    "title": "Suspicious handle opened to LSASS",
+    "severity": "high",
+    "techniques": [
+      "T1003.001"
+    ],
+    "rule_id": "ck-win-006",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T09:07:30+00:00",
+    "event_refs": [
+      "WS-FIN-07_Sysmon.jsonl#10026"
+    ]
+  },
+  {
+    "title": "NTLM network logon with null session key (possible pass-the-hash)",
+    "severity": "high",
+    "techniques": [
+      "T1550.002"
+    ],
+    "rule_id": "ck-win-013",
+    "hosts": [
+      "DC01"
+    ],
+    "first_seen": "2026-11-18T09:31:10+00:00",
+    "event_refs": [
+      "DC01_Security_WEF.xml#880053"
+    ]
+  },
+  {
+    "title": "PsExec-style remote service installed (EID 7045)",
+    "severity": "high",
+    "techniques": [
+      "T1569.002",
+      "T1021.002"
+    ],
+    "rule_id": "ck-win-012",
+    "hosts": [
+      "DC01"
+    ],
+    "first_seen": "2026-11-18T09:31:11+00:00",
+    "event_refs": [
+      "DC01_System.winlogbeat.jsonl#50001"
+    ]
+  },
+  {
+    "title": "Account created or added to a group with net.exe",
+    "severity": "high",
+    "techniques": [
+      "T1136.002",
+      "T1098"
+    ],
+    "rule_id": "ck-win-019",
+    "hosts": [
+      "DC01"
+    ],
+    "first_seen": "2026-11-18T09:32:04+00:00",
+    "event_refs": [
+      "DC01_Sysmon.winlogbeat.jsonl#50003",
+      "DC01_Sysmon.winlogbeat.jsonl#50004"
+    ]
+  },
+  {
+    "title": "Member added to a privileged group",
+    "severity": "high",
+    "techniques": [
+      "T1098"
+    ],
+    "rule_id": "ck-win-015",
+    "hosts": [
+      "DC01"
+    ],
+    "first_seen": "2026-11-18T09:32:20+00:00",
+    "event_refs": [
+      "DC01_Security_WEF.xml#880056"
+    ]
+  },
+  {
+    "title": "Large outbound transfer to 203.0.113.50:443",
+    "severity": "high",
+    "techniques": [
+      "T1041"
+    ],
+    "rule_id": "analytic.large_outbound",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T09:52:30+00:00",
+    "event_refs": [
+      "core-span_2026-11-18.pcap#1024"
+    ]
+  },
+  {
+    "title": "DNS tunnelling / exfiltration via tlmcache.example",
+    "severity": "high",
+    "techniques": [
+      "T1048",
+      "T1071.004"
+    ],
+    "rule_id": "analytic.dns_tunnel",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T10:05:00+00:00",
+    "event_refs": [
+      "core-span_2026-11-18.pcap#2419",
+      "core-span_2026-11-18.pcap#2421",
+      "core-span_2026-11-18.pcap#2422",
+      "core-span_2026-11-18.pcap#2423",
+      "core-span_2026-11-18.pcap#2424",
+      "core-span_2026-11-18.pcap#2427",
+      "core-span_2026-11-18.pcap#2428",
+      "core-span_2026-11-18.pcap#2429",
+      "core-span_2026-11-18.pcap#2430",
+      "core-span_2026-11-18.pcap#2431",
+      "core-span_2026-11-18.pcap#2432",
+      "core-span_2026-11-18.pcap#2433",
+      "core-span_2026-11-18.pcap#2434",
+      "core-span_2026-11-18.pcap#2435",
+      "core-span_2026-11-18.pcap#2436",
+      "core-span_2026-11-18.pcap#2437",
+      "core-span_2026-11-18.pcap#2438",
+      "core-span_2026-11-18.pcap#2439",
+      "core-span_2026-11-18.pcap#2440",
+      "core-span_2026-11-18.pcap#2441",
+      "core-span_2026-11-18.pcap#2442",
+      "core-span_2026-11-18.pcap#2443",
+      "core-span_2026-11-18.pcap#2444",
+      "core-span_2026-11-18.pcap#2445",
+      "core-span_2026-11-18.pcap#2453",
+      "core-span_2026-11-18.pcap#2461",
+      "core-span_2026-11-18.pcap#2464",
+      "core-span_2026-11-18.pcap#2465",
+      "core-span_2026-11-18.pcap#2466",
+      "core-span_2026-11-18.pcap#2469",
+      "core-span_2026-11-18.pcap#2470",
+      "core-span_2026-11-18.pcap#2471",
+      "core-span_2026-11-18.pcap#2472",
+      "core-span_2026-11-18.pcap#2473",
+      "core-span_2026-11-18.pcap#2474",
+      "core-span_2026-11-18.pcap#2475",
+      "core-span_2026-11-18.pcap#2476",
+      "core-span_2026-11-18.pcap#2477",
+      "core-span_2026-11-18.pcap#2478",
+      "core-span_2026-11-18.pcap#2479",
+      "core-span_2026-11-18.pcap#2480",
+      "core-span_2026-11-18.pcap#2481",
+      "core-span_2026-11-18.pcap#2482"
+    ]
+  },
+  {
+    "title": "Volume shadow copies deleted",
+    "severity": "high",
+    "techniques": [
+      "T1490"
+    ],
+    "rule_id": "ck-win-009",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T10:12:04+00:00",
+    "event_refs": [
+      "WS-FIN-07_Sysmon.jsonl#10036",
+      "WS-FIN-07_Sysmon.jsonl#10037"
+    ]
+  },
+  {
+    "title": "Event log cleared from the command line",
+    "severity": "high",
+    "techniques": [
+      "T1070.001"
+    ],
+    "rule_id": "ck-win-010",
+    "hosts": [
+      "DC01"
+    ],
+    "first_seen": "2026-11-18T10:14:30+00:00",
+    "event_refs": [
+      "DC01_Sysmon.winlogbeat.jsonl#50005"
+    ]
+  },
+  {
+    "title": "Security audit log was cleared (EID 1102)",
+    "severity": "high",
+    "techniques": [
+      "T1070.001"
+    ],
+    "rule_id": "ck-win-011",
+    "hosts": [
+      "DC01"
+    ],
+    "first_seen": "2026-11-18T10:14:31+00:00",
+    "event_refs": [
+      "DC01_Security_WEF.xml#880067"
+    ]
+  },
+  {
+    "title": "SSH brute force (no success observed)",
+    "severity": "medium",
+    "techniques": [
+      "T1110.001"
+    ],
+    "rule_id": "analytic.bruteforce.ssh",
+    "hosts": [
+      "WEB01"
+    ],
+    "first_seen": "2026-11-18T07:40:04+00:00",
+    "event_refs": [
+      "auth.log#5",
+      "auth.log#7",
+      "auth.log#9",
+      "auth.log#11",
+      "auth.log#12",
+      "auth.log#13",
+      "auth.log#15",
+      "auth.log#17",
+      "auth.log#19",
+      "auth.log#21",
+      "auth.log#22",
+      "auth.log#24",
+      "auth.log#26",
+      "auth.log#28",
+      "auth.log#30",
+      "auth.log#31",
+      "auth.log#33",
+      "auth.log#35",
+      "auth.log#37",
+      "auth.log#39",
+      "auth.log#41",
+      "auth.log#43",
+      "auth.log#44",
+      "auth.log#45",
+      "auth.log#46",
+      "auth.log#48",
+      "auth.log#50",
+      "auth.log#52",
+      "auth.log#54",
+      "auth.log#56",
+      "auth.log#58",
+      "auth.log#60",
+      "auth.log#61",
+      "auth.log#63",
+      "auth.log#65",
+      "auth.log#67",
+      "auth.log#69",
+      "auth.log#71",
+      "auth.log#72",
+      "auth.log#74",
+      "auth.log#76",
+      "auth.log#78",
+      "auth.log#80",
+      "auth.log#82",
+      "auth.log#84",
+      "auth.log#86",
+      "auth.log#87",
+      "auth.log#89",
+      "auth.log#91",
+      "auth.log#92",
+      "auth.log#94",
+      "auth.log#96",
+      "auth.log#97",
+      "auth.log#99",
+      "auth.log#101",
+      "auth.log#103",
+      "auth.log#104",
+      "auth.log#106",
+      "auth.log#108",
+      "auth.log#110",
+      "auth.log#112",
+      "auth.log#113",
+      "auth.log#115",
+      "auth.log#117"
+    ]
+  },
+  {
+    "title": "Macro-enabled Office document saved from an email attachment",
+    "severity": "medium",
+    "techniques": [
+      "T1566.001"
+    ],
+    "rule_id": "ck-win-021",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T08:41:05+00:00",
+    "event_refs": [
+      "WS-FIN-07_Sysmon.jsonl#10007"
+    ]
+  },
+  {
+    "title": "Executable or dump written to a world-writable directory",
+    "severity": "medium",
+    "techniques": [
+      "T1105"
+    ],
+    "rule_id": "ck-win-020",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T08:42:10+00:00",
+    "event_refs": [
+      "WS-FIN-07_Sysmon.jsonl#10011",
+      "WS-FIN-07_Sysmon.jsonl#10027",
+      "WS-FIN-07_Sysmon.jsonl#10032"
+    ]
+  },
+  {
+    "title": "Domain and account discovery commands",
+    "severity": "medium",
+    "techniques": [
+      "T1033",
+      "T1087.002",
+      "T1482"
+    ],
+    "rule_id": "ck-win-007",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T08:55:03+00:00",
+    "event_refs": [
+      "WS-FIN-07_Sysmon.jsonl#10016",
+      "WS-FIN-07_Sysmon.jsonl#10017",
+      "WS-FIN-07_Sysmon.jsonl#10018",
+      "WS-FIN-07_Sysmon.jsonl#10019",
+      "WS-FIN-07_Sysmon.jsonl#10020",
+      "WS-FIN-07_Sysmon.jsonl#10021"
+    ]
+  },
+  {
+    "title": "User account created (EID 4720)",
+    "severity": "medium",
+    "techniques": [
+      "T1136.002"
+    ],
+    "rule_id": "ck-win-014",
+    "hosts": [
+      "DC01"
+    ],
+    "first_seen": "2026-11-18T09:32:05+00:00",
+    "event_refs": [
+      "DC01_Security_WEF.xml#880055"
+    ]
+  },
+  {
+    "title": "Data staged into an archive with a command-line archiver",
+    "severity": "medium",
+    "techniques": [
+      "T1560.001"
+    ],
+    "rule_id": "ck-win-008",
+    "hosts": [
+      "WS-FIN-07"
+    ],
+    "first_seen": "2026-11-18T09:48:01+00:00",
+    "event_refs": [
+      "WS-FIN-07_Sysmon.jsonl#10034"
+    ]
+  }
+]

@@ -1,0 +1,13 @@
+title: Scheduled task created from the command line
+id: ck-win-017
+status: stable
+description: schtasks /create registered a task - a common persistence mechanism.
+author: DFIR CaseKit
+level: medium
+tags: [attack.persistence, attack.t1053.005]
+logsource: {product: windows, category: process_creation}
+detection:
+  selection:
+    Image|endswith: '\schtasks.exe'
+    CommandLine|contains: '/create'
+  condition: selection

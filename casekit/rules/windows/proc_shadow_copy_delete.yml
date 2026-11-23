@@ -1,0 +1,16 @@
+title: Volume shadow copies deleted
+id: ck-win-009
+status: stable
+description: Shadow copies were deleted, removing local restore points. Common before ransomware encryption and as anti-forensics.
+author: DFIR CaseKit
+level: high
+tags: [attack.impact, attack.t1490]
+logsource: {product: windows, category: process_creation}
+detection:
+  sel_vss:
+    CommandLine|contains|all: ['vssadmin', 'delete', 'shadows']
+  sel_wmic:
+    CommandLine|contains|all: ['wmic', 'shadowcopy', 'delete']
+  sel_wbadmin:
+    CommandLine|contains|all: ['wbadmin', 'delete', 'catalog']
+  condition: 1 of sel_*

@@ -1,0 +1,15 @@
+title: Event log cleared from the command line
+id: ck-win-010
+status: stable
+description: wevtutil cl or Clear-EventLog was used to wipe a Windows event log.
+author: DFIR CaseKit
+level: high
+tags: [attack.defense_evasion, attack.t1070.001]
+logsource: {product: windows, category: process_creation}
+detection:
+  sel_wevtutil:
+    Image|endswith: '\wevtutil.exe'
+    CommandLine|contains: [' cl ', ' clear-log ']
+  sel_ps:
+    CommandLine|contains: ['Clear-EventLog', 'Remove-EventLog']
+  condition: 1 of sel_*

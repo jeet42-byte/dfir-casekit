@@ -1,0 +1,16 @@
+title: PsExec-style remote service installed (EID 7045)
+id: ck-win-012
+status: stable
+description: A service was installed whose name or binary matches PsExec / Impacket service execution - remote code execution over SMB admin shares.
+author: DFIR CaseKit
+level: high
+tags: [attack.execution, attack.t1569.002, attack.lateral_movement, attack.t1021.002]
+logsource: {product: windows, service: system}
+detection:
+  selection_eid:
+    EventID: 7045
+  sel_name:
+    ServiceName|contains: ['PSEXESVC', 'RemComSvc', 'csexecsvc']
+  sel_path:
+    ImagePath|contains: ['PSEXESVC', '\\127.0.0.1\ADMIN$', '%COMSPEC%', 'cmd.exe /c', 'cmd /c']
+  condition: selection_eid and 1 of sel_*

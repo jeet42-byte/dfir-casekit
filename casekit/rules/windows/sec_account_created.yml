@@ -1,0 +1,12 @@
+title: User account created (EID 4720)
+id: ck-win-014
+status: stable
+description: A new account was created. On a domain controller this is a domain account. Confirm it maps to an approved request.
+author: DFIR CaseKit
+level: medium
+tags: [attack.persistence, attack.t1136.002]
+logsource: {product: windows, service: security}
+detection:
+  selection:
+    EventID: 4720
+  condition: selection

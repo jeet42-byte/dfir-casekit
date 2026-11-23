@@ -1,0 +1,20 @@
+title: LSASS memory dump via comsvcs.dll MiniDump or procdump
+id: ck-win-005
+status: stable
+description: |
+  rundll32 invoked comsvcs.dll's MiniDump export (or procdump targeted lsass). This writes the
+  memory of LSASS - which holds NTLM hashes and Kerberos tickets of logged-on users - to disk
+  for offline credential extraction with Mimikatz/pypykatz.
+author: DFIR CaseKit
+level: critical
+tags: [attack.credential_access, attack.t1003.001, attack.defense_evasion, attack.t1218.011]
+logsource: {product: windows, category: process_creation}
+detection:
+  sel_comsvcs:
+    Image|endswith: '\rundll32.exe'
+    CommandLine|contains|all: ['comsvcs', 'full']
+  sel_comsvcs_ordinal:
+    CommandLine|contains: ['comsvcs.dll, MiniDump', 'comsvcs.dll,MiniDump', 'comsvcs.dll #24', 'comsvcs.dll,#24']
+  sel_procdump:
+    CommandLine|contains|all: ['-ma', 'lsass']
+  condition: 1 of sel_*

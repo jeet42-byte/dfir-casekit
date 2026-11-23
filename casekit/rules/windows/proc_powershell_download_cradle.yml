@@ -1,0 +1,14 @@
+title: PowerShell download cradle
+id: ck-win-003
+status: stable
+description: PowerShell fetched remote content with a WebClient / Invoke-WebRequest / BITS cradle, including inside a decoded -EncodedCommand payload.
+author: DFIR CaseKit
+level: high
+tags: [attack.command_and_control, attack.t1105, attack.execution, attack.t1059.001]
+logsource: {product: windows, category: process_creation}
+detection:
+  sel_plain:
+    CommandLine|contains: ['DownloadString(', 'DownloadFile(', 'DownloadData(', 'Invoke-WebRequest', 'iwr ', 'Net.WebClient', 'Start-BitsTransfer', 'Invoke-RestMethod']
+  sel_decoded:
+    DecodedCommand|contains: ['DownloadString(', 'DownloadFile(', 'DownloadData(', 'Invoke-WebRequest', 'iwr ', 'Net.WebClient', 'Start-BitsTransfer', 'Invoke-RestMethod']
+  condition: 1 of sel_*

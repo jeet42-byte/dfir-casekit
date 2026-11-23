@@ -1,0 +1,14 @@
+title: Script or executable fetched over plain HTTP
+id: ck-net-001
+status: stable
+description: An HTTP request fetched a script/executable, or was made by PowerShell's own user agent. Payload staging over cleartext HTTP is visible in full in the capture.
+author: DFIR CaseKit
+level: high
+tags: [attack.command_and_control, attack.t1105, attack.t1071.001]
+logsource: {product: network, service: http}
+detection:
+  sel_ext:
+    uri|endswith: ['.ps1', '.hta', '.vbs', '.exe', '.dll', '.bat', '.scr', '.jse']
+  sel_ua:
+    user_agent|contains: ['WindowsPowerShell', 'PowerShell/', 'certutil', 'BITS/', 'curl/', 'Wget/']
+  condition: 1 of sel_*
